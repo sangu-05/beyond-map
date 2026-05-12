@@ -1,0 +1,360 @@
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.home {
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.result-page {
+  width: 100%;
+  max-width: 1400px;   /* 전체 최대 넓이 제한 */
+  margin: 0 auto;      /* 가운데 정렬 핵심 */
+  padding: 35px 40px 80px;
+  background: #fff;
+}
+
+.title {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 700;
+  color: #174cff;
+}
+
+.small-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #174cff;
+  cursor: pointer;
+}
+
+/* 검색창 */
+.search-container {
+  border: 1px solid #d0d0d0;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.home .search-container {
+  width: 640px;
+  height: 70px;
+  padding: 0 28px;
+}
+
+.result-page .search-container {
+  width: 820px;
+  height: 76px;
+  margin: 35px auto 70px;
+  padding: 0 28px;
+}
+
+.search-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 22px;
+}
+
+.search-container button {
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* 레이아웃 */
+.layout {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+
+/* 사이드바 */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  padding-left: 10px;   /* 살짝 오른쪽 이동 */
+}
+
+.sidebar h3 {
+  font-size: 26px;
+  line-height: 1.25;
+  margin: 0 0 30px;
+  font-weight: 700;
+}
+
+.reset-button {
+  display: block;
+  width: fit-content;
+  margin-bottom: 24px;
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background: #f0f0f0;
+}
+
+.keyword-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keyword-item {
+  width: fit-content;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: #fff;
+  padding: 8px 16px;
+  font-size: 17px;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.keyword-item:hover {
+  background: #174cff;
+  color: white;
+  border-color: #174cff;
+  transform: translateY(-2px);
+}
+
+/* 결과 영역 */
+
+.results {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 420px));
+  gap: 60px 50px;
+  padding-left: 20px;  
+}
+
+.results h2 {
+  grid-column: 1 / -1;
+}
+
+.image-box {
+  width: 100%;
+  height: 260px;
+  border: 2px solid #111;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card p {
+  font-size: 22px;
+  margin-top: 10;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card {
+  width: 100%;
+  cursor: pointer;
+}
+
+.detail-page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 35px 70px 80px;
+}
+
+.detail-page .small-title {
+  cursor: pointer;
+}
+
+.detail-hero {
+  width: 100%;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-title {
+  font-size: 24px;
+  margin: 0 0 45px;
+}
+
+.main-place-section {
+  width: 700px;
+  margin-top: 25px;
+  margin-bottom: 70px;
+  text-align: left;
+}
+
+.main-place-image {
+  width: 560px;
+  height: 330px;
+  border: 2px solid #111;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.main-place-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-place-section h3 {
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+
+.main-place-section p {
+  font-size: 22px;
+  margin: 0;
+}
+
+.course-section {
+  margin-top: 30px;
+}
+
+.course-card-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: nowrap;
+}
+
+.course-card-list.five-cards {
+  gap: 18px;
+}
+
+.course-card {
+  width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card-list.five-cards .course-card {
+  width: 180px;
+}
+
+.course-image-box {
+  width: 100%;
+  height: 170px;
+  border-bottom: 2px solid #111;
+  overflow: hidden;
+}
+
+.course-card-list.five-cards .course-image-box {
+  height: 140px;
+}
+
+.course-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 지도 */
+.detail-content {
+  flex: 1;
+  width: 100%;
+}
+
+.detail-title {
+  font-size: 28px;
+  margin: 0 0 30px;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 14px;
+}
+
+.detail-hero {
+  width: 100%;
+  height: 430px;
+ 
+  border-radius: 0px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.travel-map-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* 카드 글 */
+.course-card-text {
+  padding: 12px 18px 14px;
+  text-align: left;
+  width: 100%;
+  flex: 1;
+}
+
+.course-card-text h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.course-card-text h4 span {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #222;
+  color: white;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-card-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #555;
+  text-align: left;
+  word-break: break-all;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+
+
