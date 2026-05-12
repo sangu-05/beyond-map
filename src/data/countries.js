@@ -681,7 +681,7 @@ const countries = [
     country: "브라질",
     city: "렌소이스 마라녜시스",
     zoom: 10,
-    image: "https://blog.kakaocdn.net/dna/cj3DgI/btrhMuqivZY/AAAAAAAAAAAAAAAAAAAAAEkgCS9p8PdRZdgNu_dGPbUtUcZjBx9JQhLMfQlRqK5q/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=d8ZzPBkj%2Fmtwiih9qAmmCem9dzs%3D",
+    image: "https://image.fnnews.com/resource/media/image/2017/08/09/201708091049305585_l.jpg",
     mainPlace: "렌소이스 마라녜시스 국립공원",
     lat: -2.4850,
     lng: -43.1200,
