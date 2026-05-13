@@ -1,16 +1,42 @@
-# React + Vite
+# Beyond Map
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+숨겨진 세계 여행지를 추천하는 React를 기반으로 한 여행 플랫폼입니다.
 
-Currently, two official plugins are available:
+## 프로젝트 소개
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Beyond Map은 사람들이 잘 모르는 세계 여러 나라의 숨겨진 도시와 여행 코스를 추천해주고 알려주는 웹사이트입니다.
 
-## React Compiler
+사용자가 키워드로 원하는 여행 스타일을 검색하면
+관련된 나라와 나라의 여행지를 추천받을 수 있습니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+또한 Google Maps API를 활용하여
+여행지 위치를 지도에서 확인할 수 있도록 제작했습니다.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 주요 기능
+
+- 키워드 기반 여행지 검색
+- 나라 및 도시별 여행 코스 추천
+- Google Maps 지도 연동
+- 여행지 위치 마커 표시
+- 여행지 상세 설명 제공
+- 반응형 UI 구성
+
+---
+
+## 사용 기술
+
+- React
+- Vite
+- JavaScript
+- CSS
+- Google Maps API
+- GitHub
+- Vercel
+
+---
+
+## 배포 링크
+
+https://beyond-map.vercel.app
