@@ -142,6 +142,13 @@ body {
   transform: translateY(-2px);
 }
 
+.keyword-item.active {
+  background-color: #1f5eff;
+  color: white;
+  border-color: #1f5eff;
+  font-weight: 700;
+}
+
 /* 결과 영역 */
 
 .results {

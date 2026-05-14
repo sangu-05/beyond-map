@@ -25,8 +25,9 @@ function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [focusedPlace, setFocusedPlace] = useState(null);
+  const [searchResetKey, setSearchResetKey] = useState(0);
 
-  const handleSearch = (keyword) => {
+  const handleSearch = (keyword, clearInput = false) => {
   const searchText = keyword.trim().replace(/\s/g, "");
 
   if (searchText === "") return;
@@ -48,15 +49,20 @@ function App() {
 
   setResults(filtered);
   setSearchKeyword(keyword);
-  setSearched(true);
+
+  if (clearInput) {
+  setSearchResetKey((prev) => prev + 1);
+  }
+
+    setSearched(true);
   setSelectedPlace(null);
-};
+  };
 
   const handleReset = () => {
     setResults([]);
     setSearchKeyword("");
     setSearched(false);
-     setSelectedPlace(null);
+    setSelectedPlace(null);
   };
 
   const handleCardClick = (item) => {
@@ -67,7 +73,7 @@ function App() {
   return (
     <div className="result-page">
       <Header small onClick={handleReset} />
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} resetKey={searchResetKey} />
 
       <div className="layout">
         <div className="sidebar">
@@ -77,10 +83,10 @@ function App() {
             {keywordList.map((k) => (
               <button
                 key={k}
-                className="keyword-item"
+                className={`keyword-item ${searchKeyword === k ? "active" : ""}`}
                 onClick={() => {
                   setSelectedPlace(null);
-                  handleSearch(k);
+                  handleSearch(k, true);
                 }}
               >
                 {k}
@@ -151,12 +157,12 @@ function App() {
       {!searched ? (
         <>
           <Header />
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar onSearch={handleSearch} resetKey={searchResetKey} />
         </>
       ) : (
         <>
           <Header small onClick={handleReset} />
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar onSearch={handleSearch} resetKey={searchResetKey} />
 
           <div className="layout">
             <div className="sidebar">
@@ -166,8 +172,8 @@ function App() {
                     {keywordList.map((k) => (
                       <button
                         key={k}
-                        className="keyword-item"
-                        onClick={() => handleSearch(k)}
+                        className={`keyword-item ${searchKeyword === k ? "active" : ""}`}
+                        onClick={() => handleSearch(k, true)}
                       >
                         {k}
                       </button>

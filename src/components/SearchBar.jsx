@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 
-export default function SearchBar({ onSearch, defaultValue = "" }) {
+export default function SearchBar({ onSearch, defaultValue = "", resetKey }) {
   const [keyword, setKeyword] = useState(defaultValue);
 
   useEffect(() => {
     setKeyword(defaultValue);
   }, [defaultValue]);
+
+  useEffect(() => {
+  setKeyword("");
+}, [resetKey]);
 
   const handleSearch = () => {
     onSearch(keyword);
@@ -15,7 +19,7 @@ export default function SearchBar({ onSearch, defaultValue = "" }) {
     <div className="search-container">
       <input
         type="text"
-        placeholder="키워드 입력"
+        placeholder="예: 일본 or 문화/역사"
         value={keyword}
         autoFocus
         onChange={(e) => setKeyword(e.target.value)}
