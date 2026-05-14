@@ -26,6 +26,7 @@ function App() {
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [focusedPlace, setFocusedPlace] = useState(null);
   const [searchResetKey, setSearchResetKey] = useState(0);
+  const [page, setPage] = useState("map");
 
   const handleSearch = (keyword, clearInput = false) => {
   const searchText = keyword.trim().replace(/\s/g, "");
@@ -69,10 +70,103 @@ function App() {
     setSelectedPlace(item);
   };
 
+  const communityPosts = [
+    {
+      category: "여행후기",
+      title: "슬로베니아 블레드 호수 다녀온 후기",
+      content: "사람이 많지 않고 조용해서 혼자 여행하기 좋았어요.",
+      author: "sangwoo",
+      likes: 12,
+      comments: 3,
+    },
+    {
+      category: "질문",
+      title: "대만 화련 여행 가보신 분 있나요?",
+      content: "타이루거 협곡 일정이랑 교통이 궁금합니다.",
+      author: "travel01",
+      likes: 5,
+      comments: 8,
+    },
+    {
+      category: "꿀팁",
+      title: "유럽 소도시 여행할 때 숙소 고르는 팁",
+      content: "기차역 근처보다 구시가지 근처가 훨씬 편한 경우가 많아요.",
+      author: "hidden_trip",
+      likes: 20,
+      comments: 4,
+    },
+  ];
+
+const CommunityPage = () => {
+  return (
+    <div className="community-page">
+      <div className="community-search-row">
+        <input
+          type="text"
+          placeholder="여행지, 제목, 키워드 검색"
+          className="community-search-input"
+        />
+        <button className="community-search-btn">검색</button>
+      </div>
+
+      <div className="community-layout">
+        <aside className="community-sidebar">
+          <h3>카테고리</h3>
+          <button>전체</button>
+          <button>여행후기</button>
+          <button>질문</button>
+          <button>꿀팁</button>
+          <button>동행구함</button>
+        </aside>
+
+        <main className="community-main">
+          <div className="community-title-row">
+            <h2>최신 게시글</h2>
+            <button className="write-btn">글쓰기</button>
+          </div>
+
+          <div className="post-list">
+            {communityPosts.map((post, index) => (
+              <div className="post-card" key={index}>
+                <span className="post-category">{post.category}</span>
+                <h3>{post.title}</h3>
+                <p>{post.content}</p>
+
+                <div className="post-info">
+                  <span>작성자 {post.author}</span>
+                  <span>좋아요 {post.likes}</span>
+                  <span>댓글 {post.comments}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+  if (page === "community") {
+  return (
+    <div className="community-screen">
+      <Header
+        small
+        onClick={() => setPage("map")}
+        onCommunityClick={() => setPage("community")}
+      />
+      <CommunityPage />
+    </div>
+  );
+}
+
  if (selectedPlace) {
   return (
     <div className="result-page">
-      <Header small onClick={handleReset} />
+      <Header
+        small
+        onClick={handleReset}
+        onCommunityClick={() => setPage("community")}
+      />
       <SearchBar onSearch={handleSearch} resetKey={searchResetKey} />
 
       <div className="layout">
@@ -157,12 +251,24 @@ function App() {
       {!searched ? (
         <>
           <Header />
-          <SearchBar onSearch={handleSearch} resetKey={searchResetKey} />
+          <SearchBar
+            onSearch={handleSearch}
+            resetKey={searchResetKey}
+            variant="box"
+          />
         </>
       ) : (
         <>
-          <Header small onClick={handleReset} />
-          <SearchBar onSearch={handleSearch} resetKey={searchResetKey} />
+          <Header
+            small
+            onClick={handleReset}
+            onCommunityClick={() => setPage("community")}
+          />
+          <SearchBar
+            onSearch={handleSearch}
+            resetKey={searchResetKey}
+            variant="box"
+          />
 
           <div className="layout">
             <div className="sidebar">

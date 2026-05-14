@@ -1,7 +1,18 @@
-export default function Header({ small = false, onClick }) {
+export default function Header({ small = false, onClick, onCommunityClick }) {
   return (
-    <h1
-      className={small ? "small-title" : "title"}onClick={onClick}>Beyond Map
-    </h1>
+    <div className={small ? "header small" : "header"}>
+      <h1
+        className={small ? "small-title" : "title"}
+        onClick={onClick}
+      >
+        Beyond Map
+      </h1>
+
+      {onCommunityClick && (
+        <button className="community-link" onClick={onCommunityClick}>
+          Beyond Community
+        </button>
+      )}
+    </div>
   );
 }

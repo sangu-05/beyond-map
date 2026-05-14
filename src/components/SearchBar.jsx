@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 
-export default function SearchBar({ onSearch, defaultValue = "", resetKey }) {
+export default function SearchBar({
+  onSearch,
+  defaultValue = "",
+  resetKey,
+  variant = "pill",
+}) {
+
   const [keyword, setKeyword] = useState(defaultValue);
 
   useEffect(() => {
@@ -16,7 +22,7 @@ export default function SearchBar({ onSearch, defaultValue = "", resetKey }) {
   };
 
   return (
-    <div className="search-container">
+    <div className={`search-container ${variant === "box" ? "box-search" : ""}`}>
       <input
         type="text"
         placeholder="예: 일본 or 문화/역사"
@@ -30,7 +36,7 @@ export default function SearchBar({ onSearch, defaultValue = "", resetKey }) {
         }}
       />
       <button className="search-btn" onClick={handleSearch}>
-        🔍
+        {variant === "box" ? "검색" : "🔍"}
       </button>
     </div>
   );
