@@ -101,22 +101,6 @@ body {
   font-weight: 700;
 }
 
-.reset-button {
-  display: block;
-  width: fit-content;
-  margin-bottom: 24px;
-  padding: 6px 12px;
-  border: 1px solid #ddd;
-  border-radius: 999px;
-  background: #fff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.reset-button:hover {
-  background: #f0f0f0;
-}
-
 .keyword-buttons {
   display: flex;
   flex-direction: column;
@@ -140,13 +124,6 @@ body {
   color: white;
   border-color: #174cff;
   transform: translateY(-2px);
-}
-
-.keyword-item.active {
-  background: white;
-  color: #1f5eff;
-  border: 2px solid #1f5eff;
-  font-weight: 800;
 }
 
 /* 결과 영역 */
@@ -197,54 +174,10 @@ body {
   cursor: pointer;
 }
 
-.detail-hero {
-  width: 100%;
-  height: 420px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 0;
-}
-
 .detail-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.detail-title {
-  font-size: 24px;
-  margin: 0 0 45px;
-}
-
-.main-place-section {
-  width: 700px;
-  margin-top: 25px;
-  margin-bottom: 70px;
-  text-align: left;
-}
-
-.main-place-image {
-  width: 560px;
-  height: 330px;
-  border: 2px solid #111;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.main-place-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.main-place-section h3 {
-  font-size: 24px;
-  margin: 0 0 20px;
-}
-
-.main-place-section p {
-  font-size: 22px;
-  margin: 0;
 }
 
 .course-section {
@@ -252,14 +185,10 @@ body {
 }
 
 .course-card-list {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: nowrap;
-}
-
-.course-card-list.five-cards {
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 28px;
 }
 
 .course-card {
@@ -273,19 +202,11 @@ body {
   flex-direction: column;
 }
 
-.course-card-list.five-cards .course-card {
-  width: 180px;
-}
-
 .course-image-box {
   width: 100%;
   height: 170px;
   border-bottom: 2px solid #111;
   overflow: hidden;
-}
-
-.course-card-list.five-cards .course-image-box {
-  height: 140px;
 }
 
 .course-image-box img {
@@ -386,14 +307,11 @@ body {
   cursor: pointer;
 }
 
-.community-link:hover {
-  text-decoration: underline;
-}
-
 .community-page {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .community-header h1 {
@@ -502,35 +420,8 @@ body {
   margin-bottom: 24px;
 }
 
-.post-info {
-  display: flex;
-  gap: 24px;
-  font-size: 14px;
-  color: #555;
-}
-
-.community-screen {
-  padding: 32px 80px 60px;
-}
-
-.community-screen .header {
-  margin-bottom: 36px;
-}
-
 .small-title {
   cursor: pointer;
-}
-
-.small-title:hover {
-  text-decoration: underline;
-}
-
-.header .small-title,
-.header .community-link {
-  color: #1f5eff;
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1;
 }
 
 .search-container.box-search {
@@ -608,33 +499,9 @@ body {
   padding: 0;
 }
 
-.header .small-title:hover,
-.header .community-link:hover {
-  text-decoration: underline;
-}
-
 .header .small-title:focus,
 .header .community-link:focus {
   outline: none;
-}
-
-.post-action-btn {
-  border: none;
-  background: transparent;
-  color: #555;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 0;
-}
-
-.post-action-btn:hover {
-  color: #1f5eff;
-  text-decoration: underline;
-}
-
-.post-action-btn.liked {
-  color: #1f5eff;
-  font-weight: 700;
 }
 
 .comment-box {
@@ -692,13 +559,6 @@ body {
   background: #174cff;
 }
 
-.community-sidebar button.active {
-  border-color: #1f5eff;
-  color: #1f5eff;
-  font-weight: 800;
-  background: #eef3ff;
-}
-
 .post-card {
   transition: 0.2s;
 }
@@ -743,4 +603,516 @@ body {
 .post-action-btn.liked {
   color: #1f5eff;
   font-weight: 800;
+}
+
+.keyword-item.active {
+  background: #1f5eff;
+  color: white;
+  border: 2px solid #1f5eff;
+  font-weight: 800;
+}
+
+.header .small-title:hover,
+.header .community-link:hover {
+  text-decoration: none;
+}
+
+.sub-page {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 40px 60px;
+  box-sizing: border-box;
+}
+
+.sub-page .header {
+  width: 100%;
+  margin: 0 0 34px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sub-page .search-container.box-search,
+.sub-page .community-search-row {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 70px;
+}
+
+/* 서브페이지 검색창 최종 통일 - 두 번째 사진 기준 */
+.sub-page .search-container.box-search,
+.sub-page .community-search-row {
+  width: 100%;
+  max-width: 1280px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 70px;
+  box-sizing: border-box;
+}
+
+.sub-page .search-container.box-search input,
+.sub-page .community-search-input {
+  flex: 1;
+  height: 56px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 0 24px;
+  font-size: 17px;
+  outline: none;
+  background: white;
+  box-sizing: border-box;
+}
+
+.sub-page .search-container.box-search .search-btn,
+.sub-page .community-search-btn {
+  width: 96px;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  background: #1f5eff;
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sub-page .header .small-title,
+.sub-page .header .community-link {
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.community-sidebar button.active {
+  background: #1f5eff;
+  color: white;
+  border: 2px solid #1f5eff;
+  font-weight: 800;
+}
+
+.community-sidebar button:hover {
+  background: #1f5eff;
+  color: white;
+  border-color: #1f5eff;
+}
+
+.community-sidebar button.active,
+.community-sidebar button.active:hover {
+  background: #1f5eff;
+  color: white;
+  border: 2px solid #1f5eff;
+  font-weight: 800;
+}
+
+.community-sidebar button {
+  transition: 0.2s;
+}
+
+.community-sidebar button:hover {
+  background: #1f5eff;
+  color: white;
+  border-color: #1f5eff;
+  transform: translateY(-2px);
+}
+
+.community-sidebar button.active,
+.community-sidebar button.active:hover {
+  background: #1f5eff;
+  color: white;
+  border: 2px solid #1f5eff;
+  font-weight: 800;
+}
+
+/* Beyond Map / Community 목록 레이아웃 통일 */
+.sub-page .layout,
+.sub-page .community-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 70px;
+  align-items: start;
+  width: 100%;
+  margin-top: 0;
+}
+
+/* 왼쪽 제목: 키워드 목록 / 카테고리 */
+.sub-page .sidebar h3,
+.sub-page .community-sidebar h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 32px;
+  line-height: 1.2;
+}
+
+/* 오른쪽 제목: 검색 결과 / 최신 게시글 */
+.sub-page .results h2,
+.sub-page .community-title-row h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 52px;
+  line-height: 1.2;
+}
+
+/* 오른쪽 제목 줄 정리 */
+.sub-page .community-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+
+/* 왼쪽 버튼 영역 간격 통일 */
+.sub-page .keyword-buttons,
+.sub-page .community-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* 키워드 버튼 / 커뮤니티 카테고리 버튼 크기 느낌 통일 */
+.sub-page .keyword-item,
+.sub-page .community-sidebar button {
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: white;
+  padding: 8px 18px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* hover 통일 */
+.sub-page .keyword-item:hover,
+.sub-page .community-sidebar button:hover {
+  background: #1f5eff;
+  color: white;
+  border-color: #1f5eff;
+  transform: translateY(-2px);
+}
+
+/* active 통일 */
+.sub-page .keyword-item.active,
+.sub-page .community-sidebar button.active,
+.sub-page .community-sidebar button.active:hover {
+  background: #1f5eff;
+  color: white;
+  border: 2px solid #1f5eff;
+  font-weight: 800;
+}
+
+/* 커뮤니티 카테고리 버튼 간격 줄이기 */
+.sub-page .community-sidebar {
+  gap: 4px;
+}
+
+/* 커뮤니티 카테고리 버튼 크기 안정화 */
+.sub-page .community-sidebar button {
+  min-width: 72px;
+  padding: 7px 18px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* 커뮤니티 카테고리 제목과 버튼 사이 간격 줄이기 */
+.sub-page .community-sidebar h3 {
+  margin-bottom: 24px;
+}
+
+.course-card-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 28px;
+}
+
+.course-card-text h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.course-card-text h4 span {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #222;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* 커뮤니티 게시글 카테고리 태그 색상 */
+.post-category {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* 여행후기 */
+.category-여행후기 {
+  background: #eef4ff;
+  color: #1f5eff;
+}
+
+/* 질문 */
+.category-질문 {
+  background: #f3edff;
+  color: #7c3aed;
+}
+
+/* 꿀팁 */
+.category-꿀팁 {
+  background: #eafaf0;
+  color: #16803c;
+}
+
+.community-sidebar .category-btn.active.all,
+.community-sidebar .category-btn.active.review {
+  background: #1f5eff;
+  color: white;
+  border-color: #1f5eff;
+}
+
+.community-sidebar .category-btn.active.question {
+  background: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
+}
+
+.community-sidebar .category-btn.active.tip {
+  background: #16803c;
+  color: white;
+  border-color: #16803c;
+}
+
+.community-sidebar .category-btn.all:hover,
+.community-sidebar .category-btn.review:hover {
+  background: #1f5eff;
+  color: white;
+  border-color: #1f5eff;
+  transform: translateY(-2px);
+}
+
+.community-sidebar .category-btn.question:hover {
+  background: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.community-sidebar .category-btn.tip:hover {
+  background: #16803c;
+  color: white;
+  border-color: #16803c;
+  transform: translateY(-2px);
+}
+
+/* 전체 페이지가 너무 넓게 퍼지지 않게 고정 */
+.sub-page {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 40px 60px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .sub-page {
+    padding: 28px 28px 50px;
+  }
+
+  .sub-page .layout,
+  .sub-page .community-layout {
+    grid-template-columns: 160px 1fr;
+    gap: 40px;
+  }
+
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .course-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .post-card {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sub-page {
+    padding: 24px 20px 40px;
+  }
+
+  .sub-page .header h1 {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .sub-page .header .small-title,
+  .sub-page .header .community-link {
+    font-size: 26px;
+  }
+
+  .sub-page .search-container.box-search,
+  .sub-page .community-search-row {
+    max-width: 100%;
+    height: auto;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .sub-page .search-container.box-search input,
+  .sub-page .community-search-input {
+    width: 100%;
+    height: 52px;
+    font-size: 16px;
+  }
+
+  .sub-page .search-container.box-search .search-btn,
+  .sub-page .community-search-btn {
+    width: 100%;
+    height: 52px;
+    font-size: 17px;
+  }
+
+  .sub-page .layout,
+  .sub-page .community-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .sub-page .sidebar h3,
+  .sub-page .community-sidebar h3 {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+
+  .sub-page .keyword-buttons,
+  .sub-page .community-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .results {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card-list {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-hero {
+    height: 320px;
+  }
+
+  .post-card {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sub-page {
+    padding: 20px 16px 36px;
+  }
+
+  .sub-page .header .small-title,
+  .sub-page .header .community-link {
+    font-size: 22px;
+  }
+
+  .sub-page .results h2,
+  .sub-page .community-title-row h2 {
+    font-size: 24px;
+  }
+
+  .card img,
+  .image-box img {
+    height: 220px;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  .course-card-text h4 {
+    font-size: 17px;
+  }
+
+  .course-card-text p {
+    font-size: 15px;
+  }
+
+  .post-card h3 {
+    font-size: 22px;
+  }
+
+  .post-card p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .home .title {
+    font-size: 42px;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .home .search-container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: none;
+    padding: 0;
+    height: auto;
+  }
+
+  .home .search-container input {
+    width: 100%;
+    height: 56px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 0 20px;
+    font-size: 17px;
+    box-sizing: border-box;
+  }
+
+  .home .search-container .search-btn {
+    width: 100%;
+    height: 56px;
+    border-radius: 16px;
+    font-size: 18px;
+  }
 }

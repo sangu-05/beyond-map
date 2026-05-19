@@ -514,15 +514,29 @@ const CommunityPage = () => {
        <aside className="community-sidebar">
         <h3>카테고리</h3>
 
-        {["전체", "여행후기", "질문", "꿀팁",].map((category) => (
+       {["전체", "여행후기", "질문", "꿀팁"].map((category) => {
+        const categoryClass =
+          category === "전체"
+            ? "all"
+            : category === "여행후기"
+            ? "review"
+            : category === "질문"
+            ? "question"
+            : "tip";
+
+        return (
           <button
             key={category}
-            className={selectedCategory === category ? "active" : ""}
+            className={`category-btn ${categoryClass} ${
+              selectedCategory === category ? "active" : ""
+            }`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
           </button>
-        ))}
+        );
+      })}
+
       </aside>
 
         <main className="community-main">
@@ -533,7 +547,9 @@ const CommunityPage = () => {
           <div className="post-list">
             {filteredCommunityPosts.map((post) => (
                 <div className="post-card" key={post.id}>
-                <span className="post-category">{post.category}</span>
+                <span className={`post-category category-${post.category}`}>
+                  {post.category}
+                </span>
                 <h3>{post.title}</h3>
                 <p>{post.content}</p>
 
@@ -601,7 +617,7 @@ const CommunityPage = () => {
 
   if (page === "community") {
   return (
-    <div className="community-screen">
+    <div className="sub-page">
       <Header
         small
         onClick={() => setPage("map")}
@@ -614,13 +630,18 @@ const CommunityPage = () => {
 
  if (selectedPlace) {
   return (
-    <div className="result-page">
+    <div className="sub-page">
       <Header
         small
         onClick={handleReset}
         onCommunityClick={() => setPage("community")}
       />
-      <SearchBar onSearch={handleSearch} resetKey={searchResetKey} />
+      
+      <SearchBar
+        onSearch={handleSearch}
+        resetKey={searchResetKey}
+        variant="box"
+      />
 
       <div className="layout">
         <div className="sidebar">
@@ -700,7 +721,7 @@ const CommunityPage = () => {
 }
 
   return (
-    <div className={searched ? "result-page" : "home"}>
+    <div className={searched ? "sub-page" : "home"}>
       {!searched ? (
         <>
           <Header />
