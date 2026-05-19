@@ -5,6 +5,7 @@ import countries from "./data/countries";
 import TravelMap from "./components/TravelMap";
 
 const keywordList = [
+  "전체",
   "자연풍경",
   "문화/역사",
   "도시탐험",
@@ -28,36 +29,49 @@ function App() {
   const [searchResetKey, setSearchResetKey] = useState(0);
   const [page, setPage] = useState("map");
 
-  const handleSearch = (keyword, clearInput = false) => {
+const handleSearch = (keyword, clearInput = false) => {
   const searchText = keyword.trim().replace(/\s/g, "");
 
   if (searchText === "") return;
 
+  if (searchText === "전체") {
+    setResults(countries);
+    setSearchKeyword("전체");
+
+    if (clearInput) {
+      setSearchResetKey((prev) => prev + 1);
+    }
+
+    setSearched(true);
+    setSelectedPlace(null);
+    return;
+  }
+
   const filtered = countries.filter((item) => {
-  const countryText = item.country.replace(/\s/g, "");
-  const cityText = item.city.replace(/\s/g, "");
+    const countryText = item.country.replace(/\s/g, "");
+    const cityText = item.city.replace(/\s/g, "");
 
-  const keywordMatch = item.keywords.some((word) => {
-    const keywordText = word.replace(/\s/g, "");
-    return keywordText.includes(searchText);
+    const keywordMatch = item.keywords.some((word) => {
+      const keywordText = word.replace(/\s/g, "");
+      return keywordText.includes(searchText);
+    });
+
+    const countryMatch = countryText.includes(searchText);
+    const cityMatch = cityText.includes(searchText);
+
+    return keywordMatch || countryMatch || cityMatch;
   });
-
-  const countryMatch = countryText.includes(searchText);
-  const cityMatch = cityText.includes(searchText);
-
-  return keywordMatch || countryMatch || cityMatch;
-});
 
   setResults(filtered);
   setSearchKeyword(keyword);
 
   if (clearInput) {
-  setSearchResetKey((prev) => prev + 1);
+    setSearchResetKey((prev) => prev + 1);
   }
 
-    setSearched(true);
+  setSearched(true);
   setSelectedPlace(null);
-  };
+};
 
   const handleReset = () => {
     setResults([]);
@@ -491,17 +505,19 @@ const CommunityPage = () => {
     <div className="community-page">
       <div className="community-search-row">
        <input
-  type="text"
-  placeholder="여행지, 제목, 키워드 검색"
-  className="community-search-input"
-  value={communityInput}
-  onChange={(e) => setCommunityInput(e.target.value)}
-  onKeyDown={(e) => {
-    if (e.key === "Enter") {
-      handleCommunitySearch();
-    }
-  }}
-/>
+          type="text"
+          placeholder="여행지, 제목, 키워드 검색"
+          className="community-search-input"
+          value={communityInput}
+          autoFocus
+          onChange={(e) => setCommunityInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleCommunitySearch();
+            }
+          }}
+        />
+
         <button
   className="community-search-btn"
   onClick={handleCommunitySearch}
