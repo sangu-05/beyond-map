@@ -143,10 +143,10 @@ body {
 }
 
 .keyword-item.active {
-  background-color: #1f5eff;
-  color: white;
-  border-color: #1f5eff;
-  font-weight: 700;
+  background: white;
+  color: #1f5eff;
+  border: 2px solid #1f5eff;
+  font-weight: 800;
 }
 
 /* 결과 영역 */
@@ -616,4 +616,131 @@ body {
 .header .small-title:focus,
 .header .community-link:focus {
   outline: none;
+}
+
+.post-action-btn {
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.post-action-btn:hover {
+  color: #1f5eff;
+  text-decoration: underline;
+}
+
+.post-action-btn.liked {
+  color: #1f5eff;
+  font-weight: 700;
+}
+
+.comment-box {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #eee;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.comment-item {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.comment-item strong {
+  min-width: 80px;
+  color: #1f5eff;
+}
+
+.comment-write {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-write input {
+  flex: 1;
+  height: 42px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 14px;
+  outline: none;
+}
+
+.comment-write button {
+  width: 72px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #1f5eff;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.comment-write button:hover {
+  background: #174cff;
+}
+
+.community-sidebar button.active {
+  border-color: #1f5eff;
+  color: #1f5eff;
+  font-weight: 800;
+  background: #eef3ff;
+}
+
+.post-card {
+  transition: 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.post-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #555;
+}
+
+.post-author {
+  color: #444;
+  font-weight: 500;
+}
+
+.post-dot {
+  color: #bbb;
+}
+
+.post-action-btn {
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.post-action-btn:hover {
+  color: #1f5eff;
+  text-decoration: underline;
+}
+
+.post-action-btn.liked {
+  color: #1f5eff;
+  font-weight: 800;
 }
